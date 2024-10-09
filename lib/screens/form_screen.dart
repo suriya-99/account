@@ -16,7 +16,6 @@ class FormScreen extends StatefulWidget {
 class _FormScreenState extends State<FormScreen> {
   final formKey = GlobalKey<FormState>();
 
-  final titleController = TextEditingController();
   final brandController = TextEditingController();
   final modelController = TextEditingController();
 
@@ -35,18 +34,6 @@ class _FormScreenState extends State<FormScreen> {
             key: formKey,
             child: Column(
               children: [
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'ชื่อรายการ',
-                  ),
-                  autofocus: false,
-                  controller: titleController,
-                  validator: (String? str) {
-                    if (str!.isEmpty) {
-                      return 'กรุณากรอกข้อมูล';
-                    }
-                  },
-                ),
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'ยี่ห้อ',
