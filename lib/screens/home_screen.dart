@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
-          title: const Text("MotoApp"),
+          title: const Text("The Garage"),
           actions: [
             IconButton(
               icon: const Icon(Icons.exit_to_app),
