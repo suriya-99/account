@@ -24,7 +24,6 @@ class TransactionDB {
     var store = intMapStoreFactory.store('expense');
 
     var keyID = store.add(db, {
-      "title": statement.title,
       "brand": statement.brand,
       "model": statement.model,
       "year": statement.year,
@@ -45,7 +44,6 @@ class TransactionDB {
     for (var record in snapshot) {
       transactions.add(Transactions(
           keyID: record.key,
-          title: record['title'].toString(),
           brand: record['brand'].toString(),
           model: record['model'].toString(),
           year: int.parse(record['year'].toString()),
@@ -70,7 +68,6 @@ class TransactionDB {
     var store = intMapStoreFactory.store('expense');
     var filter = Finder(filter: Filter.equals(Field.key, statement.keyID));
     var result = store.update(db, finder: filter, {
-      "title": statement.title,
       "brand": statement.brand,
       "model": statement.model,
       "year": statement.year.toString(),

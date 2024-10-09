@@ -1,6 +1,5 @@
 class Transactions {
   int? keyID;
-  final String title;
   final String brand;
   final String model;
   final int year;
@@ -10,7 +9,6 @@ class Transactions {
 
   Transactions({
     this.keyID,
-    required this.title,
     required this.brand,
     required this.model,
     required this.year,
