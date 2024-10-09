@@ -60,12 +60,12 @@ class _MyHomePageState extends State<MyHomePage> {
         bottomNavigationBar: TabBar(
           tabs: [
             Tab(
-              text: "รายการธุรกรรม",
+              text: "รายการ",
               icon: CircleAvatar(
                 radius: 20,
-                backgroundColor: Colors.red, // พื้นหลังสีแดง
+                backgroundColor: Colors.red,
                 child: FaIcon(
-                  FontAwesomeIcons.motorcycle,  // ไอคอนมอเตอร์ไซค์จาก Font Awesome
+                  FontAwesomeIcons.motorcycle,
                   color: Colors.white,
                 ),
               ),
@@ -74,9 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
               text: "เพิ่มข้อมูล",
               icon: CircleAvatar(
                 radius: 20,
-                backgroundColor: Colors.green, // พื้นหลังสีเขียว
+                backgroundColor: Colors.green,
                 child: Icon(
-                  Icons.add,  // ไอคอนเครื่องหมายบวกจาก Flutter
+                  Icons.add,
                   color: Colors.white,
                 ),
               ),
