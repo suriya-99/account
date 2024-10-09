@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       leading: CircleAvatar(
-                        radius: 30,
+                        radius: 40,
                       ),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),

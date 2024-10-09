@@ -114,7 +114,7 @@ class _FormScreenState extends State<FormScreen> {
                     onPressed: () {
                           if (formKey.currentState!.validate())
                             {
-                              // create transaction data object
+                              
                               var statement = Transactions(
                                   keyID: null,
                                   brand: brandController.text,
@@ -125,7 +125,7 @@ class _FormScreenState extends State<FormScreen> {
                                   date: DateTime.now()
                                   );
                             
-                              // add transaction data object to provider
+                              
                               var provider = Provider.of<TransactionProvider>(context, listen: false);
                               
                               provider.addTransaction(statement);

@@ -26,7 +26,6 @@ class _EditScreenState extends State<EditScreen> {
   void initState() {
     super.initState();
 
-    // Initialize controllers with statement data
     brandController.text = widget.statement.brand;
     modelController.text = widget.statement.model;
     yearController.text = widget.statement.year.toString();
@@ -36,7 +35,6 @@ class _EditScreenState extends State<EditScreen> {
 
   @override
   void dispose() {
-    // Clean up controllers
     brandController.dispose();
     modelController.dispose();
     yearController.dispose();
@@ -65,7 +63,7 @@ class _EditScreenState extends State<EditScreen> {
                   if (str!.isEmpty) {
                     return 'กรุณากรอกข้อมูล';
                   }
-                  return null; // Add return null if no error
+                  return null;
                 },
               ),
               TextFormField(
@@ -139,7 +137,6 @@ class _EditScreenState extends State<EditScreen> {
                   child: const Text('แก้ไขข้อมูล'),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      // Create transaction data object
                       var statement = Transactions(
                         keyID: widget.statement.keyID,
                         brand: brandController.text,
@@ -147,9 +144,9 @@ class _EditScreenState extends State<EditScreen> {
                         year: int.parse(yearController.text),
                         hp: double.parse(hpController.text),
                         torque: double.parse(torqueController.text),
-                        date: DateTime.now(), // Use current date or use a date picker for more flexibility
+                        date: DateTime.now(),
                       );
-                      // Add transaction data object to provider
+                      
                       var provider = Provider.of<TransactionProvider>(context, listen: false);
 
                       provider.updateTransaction(statement);

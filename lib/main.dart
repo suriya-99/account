@@ -3,6 +3,7 @@ import 'package:account/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:account/provider/transaction_provider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Import Font Awesome
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -42,7 +42,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Provider.of<TransactionProvider>(context, listen: false).initData();
   }
@@ -50,20 +49,41 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          body: TabBarView(
-            children: [
-              HomeScreen(),
-              FormScreen(),
-            ],
-          ),
-          bottomNavigationBar: TabBar(
-            tabs: [
-              Tab(text: "รายการธุรกรรม", icon: Icon(Icons.list),),
-              Tab(text: "เพิ่มข้อมูล", icon: Icon(Icons.add),),
-            ],
-          ),
-        ));
+      length: 2,
+      child: Scaffold(
+        body: TabBarView(
+          children: [
+            HomeScreen(),
+            FormScreen(),
+          ],
+        ),
+        bottomNavigationBar: TabBar(
+          tabs: [
+            Tab(
+              text: "รายการธุรกรรม",
+              icon: CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.red, // พื้นหลังสีแดง
+                child: FaIcon(
+                  FontAwesomeIcons.motorcycle,  // ไอคอนมอเตอร์ไซค์จาก Font Awesome
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Tab(
+              text: "เพิ่มข้อมูล",
+              icon: CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.green, // พื้นหลังสีเขียว
+                child: Icon(
+                  Icons.add,  // ไอคอนเครื่องหมายบวกจาก Flutter
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
