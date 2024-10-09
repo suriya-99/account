@@ -28,7 +28,6 @@ class _EditScreenState extends State<EditScreen> {
     super.initState();
 
     // Initialize controllers with statement data
-    titleController.text = widget.statement.title;
     brandController.text = widget.statement.brand;
     modelController.text = widget.statement.model;
     yearController.text = widget.statement.year.toString();
@@ -145,7 +144,6 @@ class _EditScreenState extends State<EditScreen> {
                       // Create transaction data object
                       var statement = Transactions(
                         keyID: widget.statement.keyID,
-                        title: titleController.text,
                         brand: brandController.text,
                         model: modelController.text,
                         year: int.parse(yearController.text),

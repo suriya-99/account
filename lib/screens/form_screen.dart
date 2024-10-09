@@ -130,7 +130,6 @@ class _FormScreenState extends State<FormScreen> {
                               // create transaction data object
                               var statement = Transactions(
                                   keyID: null,
-                                  title: titleController.text,
                                   brand: brandController.text,
                                   model: modelController.text,
                                   year: int.parse(yearController.text),

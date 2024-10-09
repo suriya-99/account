@@ -43,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     elevation: 5,
                     margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
                     child: ListTile(
-                      title: Text(statement.title),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
