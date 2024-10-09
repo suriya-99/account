@@ -16,7 +16,6 @@ class EditScreen extends StatefulWidget {
 class _EditScreenState extends State<EditScreen> {
   final formKey = GlobalKey<FormState>();
 
-  final titleController = TextEditingController();
   final brandController = TextEditingController();
   final modelController = TextEditingController();
   final yearController = TextEditingController();
@@ -38,7 +37,6 @@ class _EditScreenState extends State<EditScreen> {
   @override
   void dispose() {
     // Clean up controllers
-    titleController.dispose();
     brandController.dispose();
     modelController.dispose();
     yearController.dispose();
