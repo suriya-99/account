@@ -1,10 +1,9 @@
 import 'package:account/provider/transaction_provider.dart';
-import 'package:account/screens/edit_screen.dart';
+import 'package:account/screens/from_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
-          title: const Text("The Garage"),
+          title: const Text("แอพบัญชี"),
           actions: [
             IconButton(
               icon: const Icon(Icons.exit_to_app),
@@ -29,8 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        body: Consumer<TransactionProvider>(
-          builder: (context, provider, Widget? child) {
+        body: Consumer(
+          builder: (context, TransactionProvider provider, Widget? child) {
+            // สร้าง index จาก keyID
+            // index = provider.transactions['keyID'];
             if (provider.transactions.isEmpty) {
               return const Center(
                 child: Text('ไม่มีรายการ'),
@@ -42,25 +43,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   var statement = provider.transactions[index];
                   return Card(
                     elevation: 5,
-                    margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
                     child: ListTile(
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Brand: ${statement.brand}'),
-                          Text('Model: ${statement.model}'),
-                          Text('Year: ${statement.year}'),
-                          Text('HP: ${statement.hp}'),
-                          Text('Torque: ${statement.torque}'),
-                          Text('Date: ${DateFormat('dd MMM yyyy hh:mm:ss').format(statement.date)}'),
-                        ],
-                      ),
+                      title: Text(statement.title),
+                      subtitle: Text(DateFormat('dd MMM yyyy hh:mm:ss')
+                          .format(statement.date)),
                       leading: CircleAvatar(
                         radius: 30,
-                        backgroundColor: Colors.blueAccent,
-                        child: FaIcon(
-                          FontAwesomeIcons.sheetPlastic, // ไอคอนเครื่องยนต์จาก Font Awesome
-                          color: Colors.white,
+                        child: FittedBox(
+                          child: Text('${statement.amount}'),
                         ),
                       ),
                       trailing: IconButton(
@@ -69,22 +61,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           provider.deleteTransaction(statement.keyID);
                         },
                       ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return EditScreen(statement: statement);
-                            },
-                          ),
-                        );
-                      },
                     ),
                   );
                 },
               );
             }
           },
-        ));
+        )
+        // This trailing comma makes auto-formatting nicer for build methods.
+        );
   }
 }

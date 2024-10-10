@@ -1,6 +1,6 @@
-import 'package:account/databases/transaction_db.dart';
+import 'package:account/batabases/transaction_db.dart';
 import 'package:flutter/foundation.dart';
-import 'package:account/models/transactions.dart';
+import 'package:account/models/transaction.dart';
 
 class TransactionProvider with ChangeNotifier {
   List<Transactions> transactions = [];
@@ -31,8 +31,8 @@ class TransactionProvider with ChangeNotifier {
     this.transactions = await db.loadAllData();
     notifyListeners(); 
   }
-
   void updateTransaction(Transactions transaction) async{
+    // print('update index: ${transaction.keyID}');
     var db = await TransactionDB(dbName: 'transactions.db');
     await db.updateDatabase(transaction);
     this.transactions = await db.loadAllData();

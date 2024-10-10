@@ -3,7 +3,7 @@ import 'package:account/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:account/provider/transaction_provider.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // Import Font Awesome
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
